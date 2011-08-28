@@ -24,6 +24,7 @@ import org.xwiki.android.components.IntentExtra;
 import org.xwiki.android.components.R;
 import org.xwiki.android.components.attachments.AttachmentActivity;
 import org.xwiki.android.components.classviewer.ClassListActivity;
+import org.xwiki.android.components.classviewer.ClassViewerActivity;
 import org.xwiki.android.components.commenteditor.CommentEditorActivity;
 import org.xwiki.android.components.objectnavigator.ObjectNavigatorActivity;
 import org.xwiki.android.components.pageviewer.XWikiPageViewerActivity;
@@ -182,17 +183,17 @@ public class PageViewActivity extends TabActivity
 
     private Intent setupClassViewerIntent()
     {
-        Intent intent = new Intent(this, ClassListActivity.class);
+        //Intent intent = new Intent(this, ClassListActivity.class);
+        Intent intent = new Intent(this, ClassViewerActivity.class);
 
         if (isSecured) {
-            intent.putExtra(ClassListActivity.INTENT_EXTRA_PUT_USERNAME, username);
-            intent.putExtra(ClassListActivity.INTENT_EXTRA_PUT_PASSWORD, password);
+            intent.putExtra(ClassViewerActivity.INTENT_EXTRA_PUT_USERNAME, username);
+            intent.putExtra(ClassViewerActivity.INTENT_EXTRA_PUT_PASSWORD, password);
         }
 
-        intent.putExtra(ClassListActivity.INTENT_EXTRA_PUT_URL, url);
-        intent.putExtra(ClassListActivity.INTENT_EXTRA_PUT_WIKI_NAME, wikiName);
-        intent.putExtra(ClassListActivity.INTENT_EXTRA_PUT_SPACE_NAME, spaceName);
-        intent.putExtra(ClassListActivity.INTENT_EXTRA_PUT_PAGE_NAME, pageName);
+        intent.putExtra(ClassViewerActivity.INTENT_EXTRA_PUT_URL, url);
+        intent.putExtra(ClassViewerActivity.INTENT_EXTRA_PUT_WIKI_NAME, wikiName);
+        intent.putExtra(ClassViewerActivity.INTENT_EXTRA_PUT_CLASS_NAME, spaceName + "." + pageName);
 
         return intent;
     }
